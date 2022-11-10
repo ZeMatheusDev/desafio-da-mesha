@@ -1,0 +1,26 @@
+<br><br>
+<div id="form">
+    <form (ngSubmit)="exibir()" >
+        <input type="text" id="envio" placeholder="Digite o nome da cidade..." class="form-group"> <br><br>
+        <button type="submit">Pesquisar</button>
+    </form>
+</div>
+
+<br><br>
+<div id="divWeatherMain">
+<br>
+    <div class="weatherWidgetRow" style="font-size: 17px;">temperatura minina: {{WeatherData.temp_min}}° </div><br><br>
+    <div class="weatherWidgetRow">sensação térmica: {{WeatherData.temp_feels_like}}° </div><br><br>
+    <div class="weatherWidgetRow" style="font-size: 40px;">{{WeatherData.name}}</div><br><br>
+    <div class="weatherWidgetRow">umidade: {{WeatherData.main.humidity}}%</div><br><br><br>
+    <div style="font-size: 40px;" class="weatherWidgetRow">{{WeatherData.temp_celcius}}° </div>
+</div>
+<br>
+<div style="text-align: center;">
+    <a style="font-size: 20px;">genero musical do clima: </a> <b style="font-size: 20px ;">{{genero}}</b> <br><br></div>
+  <div style="text-align: center;"><p style="font-size: 20px;">Lista de 5 músicas do clima:</p> <br><b style="font-size: 20px;">{{MusicasData.nome1}}</b></div> 
+  <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome2}}</b></div>  
+  <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome3}}</b></div>  
+  <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome4}}</b></div>  
+  <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome5}}</b></div>  
+
