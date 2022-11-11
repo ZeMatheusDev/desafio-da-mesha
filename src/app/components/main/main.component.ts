@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core'
+import { Output } from '@angular/core';
+import { interval, Observable } from 'rxjs';
+import { ValoresService } from '../../services/valores.service';
 
 @Component({
   selector: 'app-main',
@@ -17,12 +20,27 @@ export class MainComponent implements OnInit {
   data:any = ''
   musicas:any = ''
   genero:string = ''
-  @Input() envio!: string;
   @Input() nome!: string;
+  arrayMusicas:any= [];
+  arrayClima:any=[];
+  arrayTotal:any=[];
+  juncao:any=[];
+  datahora:any=[];
+  contador:number = 1;
+  arrayCheio:any;
+  @Input() recebido:any;
+  exibirx:any = localStorage.getItem('ArrayMusicasEClima'+0);
   
-  constructor() { }
+  constructor(private dataService: ValoresService) {
+
+    this.recebido = this.MusicasData;
+   }
 
   ngOnInit(): void {
+    if(localStorage['Contador'] != undefined){
+      let teste = localStorage.getItem('Contador')
+      this.contador = (Number(teste) + 1);
+    }
     this.WeatherData = {
       main: {}
     }
@@ -32,9 +50,7 @@ export class MainComponent implements OnInit {
     this.getWeatherData();
     this.getMusicasData();
   }
-  
-
-
+ 
 
   getWeatherData(nome: string = 'Maceió'){
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${nome}&appid=e70bc26d604f90f1dddb9749ee87159a`)
@@ -45,9 +61,6 @@ export class MainComponent implements OnInit {
 
   }
 
-  fazer(envio: any){
-    console.log(this.envio);
-  }
 
   setWeatherData(data: any){
     this.WeatherData = data;
@@ -74,11 +87,52 @@ export class MainComponent implements OnInit {
 
   exibir(){
     let nome: string = (<HTMLInputElement>document.getElementById('envio')).value;
-
     this.getWeatherData(nome);
   }
 
-  mostrar(){
+  salvar(){
+    this.arrayMusicas.push(this.MusicasData.nome1);
+    this.arrayMusicas.push(this.MusicasData.nome2);
+    this.arrayMusicas.push(this.MusicasData.nome3);
+    this.arrayMusicas.push(this.MusicasData.nome4);
+    this.arrayMusicas.push(this.MusicasData.nome5);
+    this.arrayClima.push(this.WeatherData.name);
+    this.arrayClima.push(this.genero);
+    this.arrayClima.push(this.WeatherData.temp_celcius);
+    this.datahora.push(new Date());
+    this.arrayTotal.push(this.datahora);
+    this.arrayTotal.push(this.arrayMusicas);
+    this.arrayTotal.push(this.arrayClima);
+    this.juncao.push(this.arrayTotal);
+    localStorage[`Contador`] = JSON.stringify(this.contador);
+    if(localStorage[`ClimaEMusicas1`] && localStorage[`ClimaEMusicas2`] && localStorage[`ClimaEMusicas3`] && localStorage[`ClimaEMusicas4`] && localStorage[`ClimaEMusicas5`]
+    && localStorage[`ClimaEMusicas6`] && localStorage[`ClimaEMusicas7`] && localStorage[`ClimaEMusicas8`] && localStorage[`ClimaEMusicas9`] && localStorage[`ClimaEMusicas10`]){
+      this.arrayCheio = true;
+    }
+    if(this.arrayCheio == false){
+    if(localStorage[`ClimaEMusicas${this.contador}`] == undefined){
+      localStorage[`ClimaEMusicas${this.contador}`] = JSON.stringify(this.arrayTotal);
+    }
+    else{
+      let index = 1;
+      while(localStorage[`ClimaEMusicas${index}`] == undefined) {
+        index++;
+      }
+      this.contador = index;
+    }
+  }
+    localStorage[`ClimaEMusicas${this.contador}`] = JSON.stringify(this.arrayTotal);
+    let valoresEmArray = JSON.parse(localStorage[`ClimaEMusicas${this.contador}`]);
+    this.arrayMusicas = [];
+    this.datahora = [];
+    this.arrayClima = [];
+    this.arrayTotal = [];
+    if(this.contador < 10){
+    this.contador += 1;
+    }
+    else{
+    this.contador = 1;
+    }
   }
   getMusicasData(genero?: any, data?: any){
     if(this.WeatherData.temp_celcius > 32){
@@ -94,10 +148,14 @@ export class MainComponent implements OnInit {
       genero = 'lofi';
     }
     this.genero = genero;
-    fetch(`https://shazam.p.rapidapi.com/search?term=${genero}&rapidapi-key=3bb5855a40msha7fd2198f9b7924p154c01jsn2a8fe0364f60`)
+    fetch(`https://shazam.p.rapidapi.com/search?term=$${genero}&rapidapi-key=5baa513b6fmshaf74a21279ee011p126735jsn2be7a268c7c8`)
     .then(response=>response.json())
     .then(musicas=>{this.setMusicasData(musicas)})
 
 
+}
+
+getContador(){
+  return this.contador;
 }
 }

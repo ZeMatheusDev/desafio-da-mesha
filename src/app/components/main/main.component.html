@@ -1,3 +1,5 @@
+<h3 style="text-align: center">Pesquise por uma cidade</h3>
+
 <br><br>
 <div id="form">
     <form (ngSubmit)="exibir()" >
@@ -22,5 +24,9 @@
   <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome2}}</b></div>  
   <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome3}}</b></div>  
   <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome4}}</b></div>  
-  <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome5}}</b></div>  
+  <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome5}}</b></div>   <br><br>
+
+  <div style="text-align: center;"><button style="width:75px; height: 50px" (click)="salvar()">Salvar</button></div>
+  <div style="text-align: center;"> Maximo de saves: 10 </div>
+
 

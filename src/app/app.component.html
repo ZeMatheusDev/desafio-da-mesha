@@ -1,2 +1,11 @@
-<h3 style="text-align: center">Pesquise por uma cidade</h3>
-<app-main></app-main>
+<nav><ul>
+    <li><a style="font-size: 30px" href="pesquisa">Pesquisar</a></li>
+
+    <li><a style="font-size: 30px;" href="listagem">Lista</a></li>
+
+</ul></nav>
+
+<router-outlet></router-outlet>
+
+<app-main hidden #main></app-main>
+<app-listagem hidden [clientes]="main.getContador"></app-listagem>
