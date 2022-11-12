@@ -82,6 +82,9 @@ export class ListagemComponent implements OnInit {
 
   removerLocalStorage(numero:number){
     localStorage.removeItem(`ClimaEMusicas${numero}`);
+    let contadorTemp = Number(localStorage.getItem('contador'));
+    contadorTemp = 1;
+    localStorage['Contador'] = JSON.stringify(contadorTemp);
     location.reload()
   } 
 

@@ -8,7 +8,9 @@ import { ValoresService } from '../../services/valores.service';
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
+  
 })
+
 export class MainComponent implements OnInit {
 
   WeatherData:any; 
@@ -20,6 +22,8 @@ export class MainComponent implements OnInit {
   data:any = ''
   musicas:any = ''
   genero:string = ''
+  sucesso:string = ''
+  maximoSave:string = ''
   @Input() nome!: string;
   arrayMusicas:any= [];
   arrayClima:any=[];
@@ -40,9 +44,6 @@ export class MainComponent implements OnInit {
     if(localStorage['Contador'] != undefined){
       let teste = localStorage.getItem('Contador')
       this.contador = (Number(teste));
-      if(this.contador == 10){
-        this.contador = 1;
-      }
     }
     this.WeatherData = {
       main: {}
@@ -94,6 +95,8 @@ export class MainComponent implements OnInit {
   }
 
   salvar(){
+    let mensagem: string = 'Voce atingiu o limite de saves (10)';
+    let mensagemSucesso: string = 'Salvo com sucesso!'
     this.arrayMusicas.push(this.MusicasData.nome1);
     this.arrayMusicas.push(this.MusicasData.nome2);
     this.arrayMusicas.push(this.MusicasData.nome3);
@@ -110,8 +113,9 @@ export class MainComponent implements OnInit {
     localStorage[`Contador`] = JSON.stringify(this.contador);
     if(localStorage[`ClimaEMusicas1`] && localStorage[`ClimaEMusicas2`] && localStorage[`ClimaEMusicas3`] && localStorage[`ClimaEMusicas4`] && localStorage[`ClimaEMusicas5`]
     && localStorage[`ClimaEMusicas6`] && localStorage[`ClimaEMusicas7`] && localStorage[`ClimaEMusicas8`] && localStorage[`ClimaEMusicas9`] && localStorage[`ClimaEMusicas10`]){
+      alert(mensagem);
       this.arrayCheio = true;
-      console.log('ta cheio')
+      this.maximoSave = mensagem;
     }
     else{
       console.log('ta vazio')
@@ -132,7 +136,8 @@ export class MainComponent implements OnInit {
        
       }
       localStorage[`ClimaEMusicas${this.contador}`] = JSON.stringify(this.arrayTotal)
-
+      alert(mensagemSucesso);
+      this.sucesso = mensagemSucesso;
     }
     
   }
@@ -162,7 +167,7 @@ export class MainComponent implements OnInit {
       genero = 'lofi';
     }
     this.genero = genero;
-    fetch(`https://shazam.p.rapidapi.com/search?term=$${genero}&rapidapi-key=42eaed8741msh2d14baf28acde7ap150320jsn7b363784c420`)
+    fetch(`https://shazam.p.rapidapi.com/search?term=$${genero}&rapidapi-key=ef0252f349mshd5617fca6de1271p13ad9cjsn7346be03cd42`)
     .then(response=>response.json())
     .then(musicas=>{this.setMusicasData(musicas)})
 

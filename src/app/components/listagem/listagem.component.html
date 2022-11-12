@@ -1,81 +1,123 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 {{contador}}
-<div *ngIf="valoresEmArray1">Data de busca: {{valoresEmArray1[0][0]}} <br>
+<div style="text-align: center" *ngIf="valoresEmArray1">
+<h2>Save 1</h2>
+
+<br>
+Data de busca: {{valoresEmArray1[0][0]}} <br>
 Cidade: {{valoresEmArray1[2][0]}} <br>
 Temperatura atual: {{valoresEmArray1[2][2]}}° <br>
 Genero recomendado: {{valoresEmArray1[2][1]}} <br>
-Lista de músicas: {{valoresEmArray1[1]}} <br>
+Lista de músicas: {{valoresEmArray1[1]}} <br> <br>
 <button *ngIf="valoresEmArray1" (click)="removerLocalStorage(1)">Apagar</button>
     
-</div> <br>
-<div *ngIf="valoresEmArray2">Data de busca: {{valoresEmArray2[0][0]}} <br>
+</div> <br> <br>
+<div style="text-align: center" *ngIf="valoresEmArray2">
+<h2>Save 2</h2>
+
+    <br>
+    Data de busca: {{valoresEmArray2[0][0]}} <br>
     Cidade: {{valoresEmArray2[2][0]}} <br>
     Temperatura atual: {{valoresEmArray2[2][2]}}° <br>
     Genero recomendado: {{valoresEmArray2[2][1]}} <br>
-    Lista de músicas: {{valoresEmArray2[1]}} <br>
+    Lista de músicas: {{valoresEmArray2[1]}} <br> <br>
     <button *ngIf="valoresEmArray2" (click)="removerLocalStorage(2)">Apagar</button>
         
-</div> <br>
-<div *ngIf="valoresEmArray3">Data de busca: {{valoresEmArray3[0][0]}} <br>
+</div> <br> <br>
+<div style="text-align: center" *ngIf="valoresEmArray3">
+<h2>Save 3</h2>
+
+    <br>
+    Data de busca: {{valoresEmArray3[0][0]}} <br>
     Cidade: {{valoresEmArray3[2][0]}} <br>
     Temperatura atual: {{valoresEmArray3[2][2]}}° <br>
     Genero recomendado: {{valoresEmArray3[2][1]}} <br>
-    Lista de músicas: {{valoresEmArray3[1]}} <br>
+    Lista de músicas: {{valoresEmArray3[1]}} <br> <br>
     <button *ngIf="valoresEmArray3" (click)="removerLocalStorage(3)">Apagar</button>
         
-</div> <br>
-<div *ngIf="valoresEmArray4">Data de busca: {{valoresEmArray4[0][0]}} <br>
+</div> <br> <br>
+<div style="text-align: center" *ngIf="valoresEmArray4">
+<h2>Save 4</h2>
+
+    <br>
+    Data de busca: {{valoresEmArray4[0][0]}} <br>
     Cidade: {{valoresEmArray4[2][0]}} <br>
     Temperatura atual: {{valoresEmArray4[2][2]}}° <br>
     Genero recomendado: {{valoresEmArray4[2][1]}} <br>
-    Lista de músicas: {{valoresEmArray4[1]}} <br>
+    Lista de músicas: {{valoresEmArray4[1]}} <br> <br>
     <button *ngIf="valoresEmArray4" (click)="removerLocalStorage(4)">Apagar</button>
         
-</div> <br>
-<div *ngIf="valoresEmArray5">Data de busca: {{valoresEmArray5[0][0]}} <br>
+</div> <br><br>
+<div style="text-align: center" *ngIf="valoresEmArray5">
+<h2>Save 5</h2>
+    <br>
+    Data de busca: {{valoresEmArray5[0][0]}} <br>
     Cidade: {{valoresEmArray5[2][0]}} <br>
     Temperatura atual: {{valoresEmArray5[2][2]}}° <br>
     Genero recomendado: {{valoresEmArray5[2][1]}} <br>
-    Lista de músicas: {{valoresEmArray5[1]}} <br>
+    Lista de músicas: {{valoresEmArray5[1]}} <br> <br>
     <button *ngIf="valoresEmArray5" (click)="removerLocalStorage(5)">Apagar</button>
         
-</div> <br>
-<div *ngIf="valoresEmArray6">Data de busca: {{valoresEmArray6[0][0]}} <br>
+</div> <br><br>
+<div style="text-align: center" *ngIf="valoresEmArray6">
+<h2>Save 6</h2>
+
+    <br>
+    Data de busca: {{valoresEmArray6[0][0]}} <br>
     Cidade: {{valoresEmArray6[2][0]}} <br>
     Temperatura atual: {{valoresEmArray6[2][2]}}° <br>
     Genero recomendado: {{valoresEmArray6[2][1]}} <br>
-    Lista de músicas: {{valoresEmArray6[1]}} <br>
+    Lista de músicas: {{valoresEmArray6[1]}} <br> <br>
     <button *ngIf="valoresEmArray6" (click)="removerLocalStorage(6)">Apagar</button>
         
-</div> <br>
-<div *ngIf="valoresEmArray7">Data de busca: {{valoresEmArray7[0][0]}} <br>
+</div> <br><br>
+<div style="text-align: center" *ngIf="valoresEmArray7">
+<h2>Save 7</h2>
+    
+    <br>
+    Data de busca: {{valoresEmArray7[0][0]}} <br>
     Cidade: {{valoresEmArray7[2][0]}} <br>
     Temperatura atual: {{valoresEmArray7[2][2]}}° <br>
     Genero recomendado: {{valoresEmArray7[2][1]}} <br>
-    Lista de músicas: {{valoresEmArray7[1]}} <br>
+    Lista de músicas: {{valoresEmArray7[1]}} <br> <br>
     <button *ngIf="valoresEmArray7" (click)="removerLocalStorage(7)">Apagar</button>
         
-</div> <br>
-<div *ngIf="valoresEmArray8">Data de busca: {{valoresEmArray8[0][0]}} <br>
+</div> <br><br>
+<div style="text-align: center" *ngIf="valoresEmArray8">
+<h2>Save 8</h2>
+    
+    <br> 
+    Data de busca: {{valoresEmArray8[0][0]}} <br>
     Cidade: {{valoresEmArray8[2][0]}} <br>
     Temperatura atual: {{valoresEmArray8[2][2]}}° <br>
     Genero recomendado: {{valoresEmArray8[2][1]}} <br>
-    Lista de músicas: {{valoresEmArray8[1]}} <br>
+    Lista de músicas: {{valoresEmArray8[1]}} <br> <br>
     <button *ngIf="valoresEmArray8" (click)="removerLocalStorage(8)">Apagar</button>
         
-</div> <br>
-<div *ngIf="valoresEmArray9">Data de busca: {{valoresEmArray9[0][0]}} <br>
+</div> <br><br>
+<div style="text-align: center" *ngIf="valoresEmArray9">
+<h2>Save 9</h2>
+
+    <br>
+    Data de busca: {{valoresEmArray9[0][0]}} <br>
     Cidade: {{valoresEmArray9[2][0]}} <br>
     Temperatura atual: {{valoresEmArray9[2][2]}}° <br>
     Genero recomendado: {{valoresEmArray9[2][1]}} <br>
-    Lista de músicas: {{valoresEmArray9[1]}} <br>
+    Lista de músicas: {{valoresEmArray9[1]}} <br> <br>
     <button *ngIf="valoresEmArray9" (click)="removerLocalStorage(9)">Apagar</button>
         
-</div> <br>
-<div *ngIf="valoresEmArray10">Data de busca: {{valoresEmArray10[0][0]}} <br>
+</div> <br><br>
+<div style="text-align: center" *ngIf="valoresEmArray10">
+<h2>Save 10</h2>
+
+    <br>
+    Data de busca: {{valoresEmArray10[0][0]}} <br>
     Cidade: {{valoresEmArray10[2][0]}} <br>
     Temperatura atual: {{valoresEmArray10[2][2]}}° <br>
     Genero recomendado: {{valoresEmArray10[2][1]}} <br>
     Lista de músicas: {{valoresEmArray10[1]}} <br>
+    <br>
     <button *ngIf="valoresEmArray10" (click)="removerLocalStorage(10)">Apagar</button>
         
-</div> <br>
+</div> <br><br>

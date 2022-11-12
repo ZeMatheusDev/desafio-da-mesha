@@ -1,7 +1,7 @@
 #divWeatherMain{
     display: solid;
     border-radius: 10px;
-    height: 400px;
+    height: 500px;
     width: 400px;
     margin: auto;
     flex-direction: column;
