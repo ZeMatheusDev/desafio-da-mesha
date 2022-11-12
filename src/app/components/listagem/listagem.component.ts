@@ -86,6 +86,7 @@ export class ListagemComponent implements OnInit {
     contadorTemp = 1;
     localStorage['Contador'] = JSON.stringify(contadorTemp);
     location.reload()
+    alert('Deletado com sucesso')
   } 
 
 }
