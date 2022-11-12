@@ -11,7 +11,7 @@ import { ValoresService } from '../../services/valores.service';
 })
 export class MainComponent implements OnInit {
 
-  WeatherData:any;
+  WeatherData:any; 
   MusicasData:any;
   rock:string = 'rock';
   pop:string = 'pop';
@@ -39,7 +39,10 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     if(localStorage['Contador'] != undefined){
       let teste = localStorage.getItem('Contador')
-      this.contador = (Number(teste) + 1);
+      this.contador = (Number(teste));
+      if(this.contador == 10){
+        this.contador = 1;
+      }
     }
     this.WeatherData = {
       main: {}
@@ -108,21 +111,32 @@ export class MainComponent implements OnInit {
     if(localStorage[`ClimaEMusicas1`] && localStorage[`ClimaEMusicas2`] && localStorage[`ClimaEMusicas3`] && localStorage[`ClimaEMusicas4`] && localStorage[`ClimaEMusicas5`]
     && localStorage[`ClimaEMusicas6`] && localStorage[`ClimaEMusicas7`] && localStorage[`ClimaEMusicas8`] && localStorage[`ClimaEMusicas9`] && localStorage[`ClimaEMusicas10`]){
       this.arrayCheio = true;
-    }
-    if(this.arrayCheio == false){
-    if(localStorage[`ClimaEMusicas${this.contador}`] == undefined){
-      localStorage[`ClimaEMusicas${this.contador}`] = JSON.stringify(this.arrayTotal);
+      console.log('ta cheio')
     }
     else{
-      let index = 1;
-      while(localStorage[`ClimaEMusicas${index}`] == undefined) {
-        index++;
-      }
-      this.contador = index;
+      console.log('ta vazio')
+      this.arrayCheio = false;
     }
+    if(this.arrayCheio == false){
+ 
+    if(localStorage[`ClimaEMusicas${this.contador}`] == undefined){
+      localStorage[`ClimaEMusicas${this.contador}`] = JSON.stringify(this.arrayTotal);
+      
+    }
+    else{
+      for (let index = 1; index < 10; index++){
+        if(localStorage[`ClimaEMusicas${this.contador}`] != undefined){
+          this.contador = index;
+
+        }
+       
+      }
+      localStorage[`ClimaEMusicas${this.contador}`] = JSON.stringify(this.arrayTotal)
+
+    }
+    
   }
-    localStorage[`ClimaEMusicas${this.contador}`] = JSON.stringify(this.arrayTotal);
-    let valoresEmArray = JSON.parse(localStorage[`ClimaEMusicas${this.contador}`]);
+    JSON.parse(localStorage[`ClimaEMusicas${this.contador}`]);
     this.arrayMusicas = [];
     this.datahora = [];
     this.arrayClima = [];
@@ -148,7 +162,7 @@ export class MainComponent implements OnInit {
       genero = 'lofi';
     }
     this.genero = genero;
-    fetch(`https://shazam.p.rapidapi.com/search?term=$${genero}&rapidapi-key=5baa513b6fmshaf74a21279ee011p126735jsn2be7a268c7c8`)
+    fetch(`https://shazam.p.rapidapi.com/search?term=$${genero}&rapidapi-key=42eaed8741msh2d14baf28acde7ap150320jsn7b363784c420`)
     .then(response=>response.json())
     .then(musicas=>{this.setMusicasData(musicas)})
 
