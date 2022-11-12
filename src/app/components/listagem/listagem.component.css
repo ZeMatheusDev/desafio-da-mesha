@@ -5,4 +5,5 @@ div {
     height: 280px;
     padding: 1 5%; 
     border: solid black;
+    border-radius: 80px
 }
