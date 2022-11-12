@@ -69,7 +69,7 @@ export class MainComponent implements OnInit {
 
   setWeatherData(data: any){
     let mensagem:string = 'Erro, digite uma cidade válida.'
-    if(data.cod != '404'){
+    if(data.cod != '404' && data.cod != '400'){
       this.WeatherData = data;
       let sunsetTime = new Date(this.WeatherData.sys.sunset * 1000);
       this.WeatherData.sunset_time = sunsetTime.toLocaleDateString();
