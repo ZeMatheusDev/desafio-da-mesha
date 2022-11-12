@@ -12,6 +12,8 @@ describe('MainComponent', () => {
     })
     .compileComponents();
 
+
+
     fixture = TestBed.createComponent(MainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -20,4 +22,8 @@ describe('MainComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('testando', () => {
+  //   component.contador = { Object({}, component.contador)};
+  // });
 });

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core'
 import { Output } from '@angular/core';
 import { interval, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { ValoresService } from '../../services/valores.service';
 
 @Component({

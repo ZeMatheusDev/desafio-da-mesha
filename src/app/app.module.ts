@@ -18,7 +18,7 @@ import { ListagemComponent } from './components/listagem/listagem.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
