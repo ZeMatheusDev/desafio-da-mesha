@@ -169,7 +169,7 @@ export class MainComponent implements OnInit {
       genero = 'lofi';
     }
     this.genero = genero;
-    fetch(`https://shazam.p.rapidapi.com/search?term=$${genero}&rapidapi-key=ef0252f349mshd5617fca6de1271p13ad9cjsn7346be03cd42`)
+    fetch(`https://shazam.p.rapidapi.com/search?term=$${genero}&rapidapi-key=a796daff75mshe96a900461674fbp11664bjsn91cb14a5346a`)
     .then(response=>response.json())
     .then(musicas=>{this.setMusicasData(musicas)})
 

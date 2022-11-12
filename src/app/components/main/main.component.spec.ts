@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainComponent } from './main.component';
+import { Component } from '@angular/core';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -11,19 +12,20 @@ describe('MainComponent', () => {
       declarations: [ MainComponent ]
     })
     .compileComponents();
+  });
 
-
-
-    fixture = TestBed.createComponent(MainComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(MainComponent)
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('testando', () => {
-  //   component.contador = { Object({}, component.contador)};
-  // });
+  it('a cidade deveria ter um input', () => {
+    component.nome = 'Maceió'
+    expect(component.nome).toEqual('Maceió')
+  })
 });
