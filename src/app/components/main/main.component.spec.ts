@@ -28,4 +28,11 @@ describe('MainComponent', () => {
     component.nome = 'Maceió'
     expect(component.nome).toEqual('Maceió')
   })
+
+  it('Deve ser enviado algo', () => {
+    component.contador = 2;
+    expect(component.salvar()).toEqual(undefined)
+  })
+
+
 });

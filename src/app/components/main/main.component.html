@@ -7,7 +7,9 @@
         <input type="text" class="form-control" style="width: 250px; text-align: center;" id="envio" placeholder="Digite o nome da cidade..." class="form-group"> <br><br>
         <button type="submit" class="btn btn-primary">Pesquisar</button>
     </form>
-</div>
+    
+</div> <br>
+<h3 style="color: red; text-align: center;">{{cidadeErrada}}</h3>
 
 <br><br>
 <div id="divWeatherMain">
@@ -27,7 +29,7 @@
   <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome4}}</b></div>  
   <div style="text-align: center;"><b style="font-size: 20px;">{{MusicasData.nome5}}</b></div>   <br><br>
     <p style="color: red; text-align: center; font-size: 20px;" *ngIf="maximoSave == 'Voce atingiu o limite de saves (10)'">ERROR: {{maximoSave}}</p>
-    <p style="color: blue; text-align: center; font-size: 20px;" *ngIf="sucesso == 'Salvo com sucesso!'">{{sucesso}}</p>
+    <p style="color: blue; text-align: center; font-size: 20px;" *ngIf="sucesso == 'Salvo com sucesso!' && maximoSave != 'Voce atingiu o limite de saves (10)'">{{sucesso}}</p>
   <div style="text-align: center;"><button class="btn btn-dark" (click)="salvar()">Salvar</button></div><br>
   <div style="text-align: center;"> Maximo de saves: 10 </div>
 

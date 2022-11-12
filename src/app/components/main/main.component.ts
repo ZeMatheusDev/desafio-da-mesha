@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
   WeatherData:any; 
   MusicasData:any;
   rock:string = 'rock';
+  cidadeErrada!:string;
   pop:string = 'pop';
   classica:string = 'classica';
   lofi:string = 'lofi';
@@ -62,21 +63,27 @@ export class MainComponent implements OnInit {
       .then(response=>response.json())
       .then(data=>{this.setWeatherData(data)})
       .then(data=>{this.getMusicasData(data)})
-  
 
   }
 
 
   setWeatherData(data: any){
-    this.WeatherData = data;
-    let sunsetTime = new Date(this.WeatherData.sys.sunset * 1000);
-    this.WeatherData.sunset_time = sunsetTime.toLocaleDateString();
-    let currentDate = new Date();
-    this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime());
-    this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
-    this.WeatherData.temp_min = (this.WeatherData.main.temp_min - 273.15).toFixed(0);
-    this.WeatherData.temp_max = (this.WeatherData.main.temp_max - 273.15).toFixed(0);
-    this.WeatherData.temp_feels_like  = (this.WeatherData.main.feels_like - 273.15).toFixed(0);
+    let mensagem:string = 'Erro, digite uma cidade válida.'
+    if(data.cod != '404'){
+      this.WeatherData = data;
+      let sunsetTime = new Date(this.WeatherData.sys.sunset * 1000);
+      this.WeatherData.sunset_time = sunsetTime.toLocaleDateString();
+      let currentDate = new Date();
+      this.WeatherData.isDay = (currentDate.getTime() < sunsetTime.getTime());
+      this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);
+      this.WeatherData.temp_min = (this.WeatherData.main.temp_min - 273.15).toFixed(0);
+      this.WeatherData.temp_max = (this.WeatherData.main.temp_max - 273.15).toFixed(0);
+      this.WeatherData.temp_feels_like  = (this.WeatherData.main.feels_like - 273.15).toFixed(0);
+    }
+    else{
+      this.cidadeErrada = mensagem;
+    }
+
 
   }
 
@@ -116,7 +123,9 @@ export class MainComponent implements OnInit {
     && localStorage[`ClimaEMusicas6`] && localStorage[`ClimaEMusicas7`] && localStorage[`ClimaEMusicas8`] && localStorage[`ClimaEMusicas9`] && localStorage[`ClimaEMusicas10`]){
       alert(mensagem);
       this.arrayCheio = true;
-      this.maximoSave = mensagem;
+      if(this.arrayCheio == true){
+        this.maximoSave = mensagem;
+      }
     }
     else{
       this.arrayCheio = false;
