@@ -119,14 +119,14 @@ export class MainComponent implements OnInit {
       this.maximoSave = mensagem;
     }
     else{
-      console.log('ta vazio')
       this.arrayCheio = false;
     }
     if(this.arrayCheio == false){
  
     if(localStorage[`ClimaEMusicas${this.contador}`] == undefined){
       localStorage[`ClimaEMusicas${this.contador}`] = JSON.stringify(this.arrayTotal);
-      
+      alert(mensagemSucesso);
+      this.sucesso = mensagemSucesso;
     }
     else{
       for (let index = 1; index < 10; index++){
@@ -143,6 +143,7 @@ export class MainComponent implements OnInit {
     
   }
     JSON.parse(localStorage[`ClimaEMusicas${this.contador}`]);
+    
     this.arrayMusicas = [];
     this.datahora = [];
     this.arrayClima = [];
