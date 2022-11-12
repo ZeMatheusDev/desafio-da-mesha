@@ -16,6 +16,7 @@ export class ListagemComponent implements OnInit {
   evento = new ValoresService;
   teste:any;
   contador:any;
+  numero!:number;
   @Input() clientes!:any
   recebido1 = localStorage.getItem('ClimaEMusicas1');
   valoresEmArray1:any;
@@ -81,12 +82,14 @@ export class ListagemComponent implements OnInit {
   }
 
   removerLocalStorage(numero:number){
+    this.numero = numero;
     localStorage.removeItem(`ClimaEMusicas${numero}`);
     let contadorTemp = Number(localStorage.getItem('contador'));
     contadorTemp = 1;
     localStorage['Contador'] = JSON.stringify(contadorTemp);
     location.reload()
     alert('Deletado com sucesso')
+    return 'deletado'
   } 
 
 }

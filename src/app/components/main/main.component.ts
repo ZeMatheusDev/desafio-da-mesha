@@ -84,7 +84,7 @@ export class MainComponent implements OnInit {
       this.cidadeErrada = mensagem;
     }
 
-
+    return data;
   }
 
   setMusicasData(musicas: any){
@@ -129,6 +129,7 @@ export class MainComponent implements OnInit {
     }
     else{
       this.arrayCheio = false;
+      console.log('to aqui')
     }
     if(this.arrayCheio == false){
  
@@ -138,7 +139,7 @@ export class MainComponent implements OnInit {
       this.sucesso = mensagemSucesso;
     }
     else{
-      for (let index = 1; index < 10; index++){
+      for (let index = 1; index <= 10; index++){
         if(localStorage[`ClimaEMusicas${this.contador}`] != undefined){
           this.contador = index;
 
@@ -178,7 +179,7 @@ export class MainComponent implements OnInit {
       genero = 'lofi';
     }
     this.genero = genero;
-    fetch(`https://shazam.p.rapidapi.com/search?term=$${genero}&rapidapi-key=a796daff75mshe96a900461674fbp11664bjsn91cb14a5346a`)
+    fetch(`https://shazam.p.rapidapi.com/search?term=$${genero}&rapidapi-key=d780ad59ddmsh5db3173da13f31ap15b597jsn1e376a022e41`)
     .then(response=>response.json())
     .then(musicas=>{this.setMusicasData(musicas)})
 

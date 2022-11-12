@@ -2,11 +2,11 @@
     display: solid;
     border-radius: 10px;
     height: 500px;
-    width: 400px;
+    width: 500px;
     margin: auto;
     flex-direction: column;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(8,7,42,1));
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(56, 56, 56));
     color: white;
     font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

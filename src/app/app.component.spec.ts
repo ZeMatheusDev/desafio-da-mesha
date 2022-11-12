@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,22 +25,23 @@ describe('AppComponent', () => {
         AppComponent,
         
       ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('Deveria ser criado o app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'desafio'`, () => {
+  it(`Deveria ter o titulo 'desafio'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('desafio');
   });
 
-  it('should render title', () => {
+  it('Deveria renderizar o titulo', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
