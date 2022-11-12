@@ -1,9 +1,8 @@
 div {
     width: 40%;
-    background-color: white;
+    background-color: rgb(206, 206, 206);
     margin: 0 auto; 
     height: 280px;
     padding: 1 5%; 
     border: solid black;
-    border-width: 0 1%; 
 }
